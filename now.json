@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "name": "kikbak.tv",
+  "builds": [
+    {
+      "src": "www/package.json",
+      "use": "@now/next"
+    },
+    {
+      "src": "api/tvos.py",
+      "use": "@now/python"
+    }
+  ],
+  "routes": [
+    { "src": "/tvos", "dest": "api/tvos.py" },
+    {
+      "src": "^/service-worker.js$",
+      "dest": "www/_next/static/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    }
+  ],
+  "env": {
+    "AWS_ID": "@aws_id",
+    "AWS_SECRET": "@aws_secret",
+    "MONGO_URL": "@mongo_url",
+    "YOUTUBE_KEY": "@youtube_key",
+    "SITEMAP_HOSTNAME": "@sitemap_hostname",
+    "AUTH0_DOMAIN": "hipstersmoothie.auth0.com",
+    "AUTH0_CLIENT_ID": "yED81NUZn6NpiylqZX49PPktZJP0AgJg",
+    "AUTH0_CLIENT_SECRET": "@auth0_client_secret",
+    "REDIRECT_URI": "https://kikbak.tv/api/callback",
+    "POST_LOGOUT_REDIRECT_URI": "https://kikbak.tv/",
+    "SESSION_COOKIE_SECRET": "@session_cookie_secret"
+  },
+  "build": {
+    "env": {
+      "MONGO_URL": "@mongo_url"
+    }
+  }
+}

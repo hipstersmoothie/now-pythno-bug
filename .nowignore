@@ -1,0 +1,5 @@
+node_modules
+.circleci
+.next
+.vscode
+.DS_Store

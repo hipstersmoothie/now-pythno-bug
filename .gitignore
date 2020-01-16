@@ -1,0 +1,10 @@
+node_modules
+.next
+.DS_Store
+.env
+tmp
+video-list.json
+emerging-list.json
+month-list.json
+.eslintcache
+.now
